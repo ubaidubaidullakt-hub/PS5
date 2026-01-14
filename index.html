@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PS5 Retro Emulator</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- Emulator cores -->
+<script src="cores/jsnes.js"></script>
+<script src="cores/jssnes.js"></script>
+<script src="cores/jsGB.js"></script>
+<script src="cores/gba.js"></script>
+<script src="cores/genesis.js"></script>
+<script src="cores/jsSMS.js"></script>
+<script src="cores/pcsx.js"></script>
+<script src="cores/dosbox.js"></script>
+<script src="cores/jsNeoGeo.js"></script>
+<script src="cores/jstatari.js"></script>
+<script src="cores/jsMAME.js"></script>
+<script src="cores/jsColeco.js"></script>
+<script src="cores/jsZX.js"></script>
+<script src="cores/jsAmiga.js"></script>
+
+<script src="libs/jszip.min.js"></script>
+</head>
+
+<body>
+
+<div id="home">
+  <h2>🎮 Retro PS5</h2>
+
+  <div id="consoleGrid">
+    <button onclick="selectConsole('nes')">NES</button>
+    <button onclick="selectConsole('snes')">SNES</button>
+    <button onclick="selectConsole('gb')">GB</button>
+    <button onclick="selectConsole('gba')">GBA</button>
+    <button onclick="selectConsole('genesis')">GENESIS</button>
+    <button onclick="selectConsole('sms')">SMS</button>
+    <button onclick="selectConsole('ps1')">PS1</button>
+    <button onclick="selectConsole('dos')">DOS</button>
+    <button onclick="selectConsole('neogeo')">NEOGEO</button>
+    <button onclick="selectConsole('atari')">ATARI</button>
+    <button onclick="selectConsole('mame')">MAME</button>
+    <button onclick="selectConsole('coleco')">COLECO</button>
+    <button onclick="selectConsole('zx')">ZX</button>
+    <button onclick="selectConsole('amiga')">AMIGA</button>
+  </div>
+
+  <button onclick="addROM()">➕ Add ROM (ZIP OK)</button>
+  <input type="file" id="romInput" hidden>
+  <div id="romList"></div>
+</div>
+
+<div id="emu">
+  <canvas id="screen"></canvas>
+  <div id="fps">FPS: 0</div>
+
+  <!-- Controls -->
+  <div id="analog"></div>
+  <div id="dpad" class="drag">⬆⬅⬇➡</div>
+  <div id="buttons" class="drag">✖⭕🔺⬛</div>
+
+  <button onclick="openSettings()">⚙</button>
+  <button onclick="exitGame()">⏹</button>
+</div>
+
+<div id="settings">
+  <h3>Settings</h3>
+  <button onclick="togglePerformance()">Performance Mode</button>
+  <button onclick="resetLayout()">Reset Layout</button>
+  <button onclick="closeSettings()">Save</button>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
